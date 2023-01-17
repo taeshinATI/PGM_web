@@ -1,0 +1,105 @@
+<html lang="en">
+   <head>
+      <title>Test</title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <style>
+         .btn-primary {
+            margin: 6px;
+            background: #fff;
+            color: #000;
+            border: 1px solid black;
+         }
+      </style>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/gh/emn178/chartjs-plugin-labels/src/chartjs-plugin-labels.js"></script>
+      <script src="./templates/js/main.js"></script>
+      <script src="./templates/js/main2.js"></script>
+      <script src="./templates/js/machine_graph.js"></script>
+   </head>
+
+   <body translate="no">
+      <div class="row">
+         <div class="col">
+            <div class="card_left">
+                <h3>Left</h3>
+                   <div class="card-body">
+                       <canvas id="mycanvas"></canvas>
+                   </div>
+            </div>
+         </div>
+
+         <div class="col">
+               <div class="card_right">
+                   <h3>Right</h3>
+                      <div class="card-body">
+                          <canvas id="mycanvas2"></canvas>
+                      </div>
+               </div>
+         </div>
+      </div>
+
+      <div class="row">
+         <div class="col">
+            <div class="card_left">
+                   <div class="card-body">
+                       <canvas id="machine_graph" width="200" height="200"></canvas>
+                   </div>
+            </div>
+         </div>
+      </div>
+
+      <div class="row">
+            <button class="btn btn-primary col" onclick="myVote('pizza')">
+               Vote Pizza
+            </button>
+            <button class="btn btn-primary col" onclick="myVote('burger')">
+               Vote Burger
+            </button>
+            <button class="btn btn-primary col" onclick="myVote('ASDF')">
+               Vote ASDF
+            </button>
+      </div>
+      <div class="row">
+            <button class="btn btn-primary col" onclick="myVote2('pizza')">
+               Vote Pizza2
+            </button>
+            <button class="btn btn-primary col" onclick="myVote2('burger')">
+               Vote Burger2
+            </button>
+      </div>
+      <script>
+         setUpChart({{ votes }})
+         setUpChart2({{ votes2 }})
+         drawChart({{ xData, yData }})
+<!--         var context = document.getElementById('myChart').getContext('2d');-->
+<!--         document.getElementById("mycanvas2").onclick = function(evt) {-->
+<!--            var activePoints = mycanvas2.getElementsAtEvent(evt);-->
+
+<!--            if(activePoints.length > 0)-->
+<!--            {-->
+<!--                var clickedElementindex = activePoints[0]["_index"];-->
+
+<!--                var label = mycanvas2.data.labels[clickedElementindex];-->
+
+<!--                var value = mycanvas2.data.datasets[0].data[clickedElementindex];-->
+<!--            }-->
+<!--        }-->
+      </script>
+   </body>
+</html>
+
+<style>
+.card-body {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+<!--  padding: 16px;-->
+  text-align: center;
+  background-color: #f1f1f1;
+  }
+
+<!--.col {-->
+<!--  float: left;-->
+<!--  width: 25%;-->
+<!--  padding: 0 10px;-->
+<!--  }-->
+
+</style>
